@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using CastleGrimtol.Project.Interfaces;
 using CastleGrimtol.Project.Models;
@@ -6,8 +7,12 @@ namespace CastleGrimtol.Project
 {
   public class GameService : IGameService
   {
-    public Room CurrentRoom { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-    public Player CurrentPlayer { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public Room CurrentRoom { get; set; }
+    public Player CurrentPlayer { get; set; }
+    public bool Running { get; set; }
+
+    // public Room CurrentRoom { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    // public Player CurrentPlayer { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     private void Initialize()
     {
@@ -17,6 +22,9 @@ namespace CastleGrimtol.Project
       Room three = new Room("Three", "You are in a metal room about 15 feet square, with exit protals to the East, West, and South.");
       Room four = new Room("Four", "You are in a metalroom about 15 feet square, with exit protals to the East, West, and South.");
       Room five = new Room("Five", "You are in a metal room about 15 feet square, with no exits.");
+      //Create Items
+      Item glasses = new Item("Glasses", "A funky pair of thick glasses.");
+      two.AddRoomItem(glasses);
       //Establish Relationships
       one.AddExits(Direction.west, two);
       one.AddExits(Direction.north, two);
@@ -31,7 +39,7 @@ namespace CastleGrimtol.Project
       four.AddExits(Direction.east, one);
       four.AddExits(Direction.south, two);
 
-      CurrRoom = one;
+      CurrentRoom = one;
       Running = true;
     }
 
@@ -40,7 +48,7 @@ namespace CastleGrimtol.Project
     {
       Initialize();
       Console.Clear();
-      while (running)
+      while (Running)
       {
 
 
@@ -50,57 +58,57 @@ namespace CastleGrimtol.Project
 
     public void Setup()
     {
-      throw new System.NotImplementedException();
+
     }
 
     public void Reset()
     {
-      throw new System.NotImplementedException();
+
     }
 
     public void StartGame()
     {
-      throw new System.NotImplementedException();
+
     }
 
     public void GetUserInput()
     {
-      throw new System.NotImplementedException();
+
     }
 
     public void Quit()
     {
-      throw new System.NotImplementedException();
+
     }
 
     public void Help()
     {
-      throw new System.NotImplementedException();
+
     }
 
     public void Go(string direction)
     {
-      throw new System.NotImplementedException();
+
     }
 
     public void TakeItem(string itemName)
     {
-      throw new System.NotImplementedException();
+
     }
 
     public void UseItem(string itemName)
     {
-      throw new System.NotImplementedException();
+
     }
 
     public void Inventory()
     {
-      throw new System.NotImplementedException();
+
     }
 
     public void Look()
     {
-      throw new System.NotImplementedException();
+
     }
   }
 }
