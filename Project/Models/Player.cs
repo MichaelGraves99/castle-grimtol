@@ -19,11 +19,12 @@ namespace CastleGrimtol.Project.Models
     }
     public void PrintInventory(int numItems)
     {
-      Console.WriteLine("Things you are carrying:");
+      Console.WriteLine("\nThings you are carrying:");
       for (int i = 0; i < numItems; i++)
       {
         Item CurInventory = Inventory[i];
         Console.WriteLine($"{CurInventory.Name} - {CurInventory.Description}");
+        Console.WriteLine("\n");
       }
 
     }

@@ -18,6 +18,7 @@ namespace CastleGrimtol.Project.Models
       {
         Item CurrentItem = Items[i];
         Console.WriteLine($"{CurrentItem.Name} - {CurrentItem.Description}");
+        System.Console.WriteLine("\n");
       }
       // Items.ForEach(name =>
       // {
@@ -29,10 +30,10 @@ namespace CastleGrimtol.Project.Models
     {
       Items.Add(item);
     }
-    public void RemoveRoomItem(Item item)
-    {
-      Items.Remove(item);
-    }
+    // public void RemoveRoomItem(Item item)
+    // {
+    //   Items.Remove(item);
+    // }
 
 
     public void AddExits(Direction direction, IRoom destination)

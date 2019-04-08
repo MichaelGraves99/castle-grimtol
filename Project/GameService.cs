@@ -90,7 +90,7 @@ namespace CastleGrimtol.Project
 
     public void GetUserInput()
     {
-      Console.WriteLine("What would you like to do:");
+      Console.WriteLine("\nWhat would you like to do:");
       string userInput = Console.ReadLine().ToLower();
       string[] input = userInput.Split(" ");
       string command = "";
@@ -109,15 +109,19 @@ namespace CastleGrimtol.Project
       {
 
         case "look":
+        case "l":
           Look();
           break;
         case "inventory":
+        case "i":
           Inventory();
           break;
         case "help":
+        case "h":
           Help();
           break;
         case "quit":
+        case "q":
           Quit();
           break;
         case "go":
@@ -185,15 +189,19 @@ namespace CastleGrimtol.Project
       switch (dir)
       {
         case "north":
+        case "n":
           CurrentRoom = (Room)CurRoom.MoveToRoom(Direction.north);
           break;
         case "south":
+        case "s":
           CurrentRoom = (Room)CurRoom.MoveToRoom(Direction.south);
           break;
         case "east":
+        case "e":
           CurrentRoom = (Room)CurRoom.MoveToRoom(Direction.east);
           break;
         case "west":
+        case "w":
           CurrentRoom = (Room)CurRoom.MoveToRoom(Direction.west);
           break;
         default:
@@ -274,7 +282,6 @@ namespace CastleGrimtol.Project
       {
         CurrentRoom.Items.Add(item);
         CurrentPlayer.Inventory.Remove(item);
-        Console.WriteLine("You now have an item\n");
       }
       else
       {
