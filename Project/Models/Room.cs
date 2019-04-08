@@ -8,16 +8,21 @@ namespace CastleGrimtol.Project.Models
   {
     public string Name { get; set; }
     public string Description { get; set; }
-    List<Item> Items { get; set; }
-    Dictionary<Direction, IRoom> Exits { get; set; }
+    public List<Item> Items { get; set; }
+    public Dictionary<Direction, IRoom> Exits { get; set; }
 
-    public void PrintItems()
+    public void PrintItems(int numItems)
     {
-      Console.WriteLine("Items that are here:");
-      Items.ForEach(name =>
+      Console.WriteLine("Items in the Room:");
+      for (int i = 0; i < numItems; i++)
       {
-        Console.WriteLine(name);
-      });
+        Item CurrentItem = Items[i];
+        Console.WriteLine($"{CurrentItem.Name} - {CurrentItem.Description}");
+      }
+      // Items.ForEach(name =>
+      // {
+      //   Console.WriteLine(name.Name);
+      // });
     }
 
     public void AddRoomItem(Item item)
@@ -51,7 +56,6 @@ namespace CastleGrimtol.Project.Models
       Items = new List<Item>();
       Exits = new Dictionary<Direction, IRoom>();
     }
-
 
   }
   public enum Direction
