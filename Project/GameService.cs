@@ -79,10 +79,11 @@ namespace CastleGrimtol.Project
     public void StartGame()
     {
       Console.WriteLine("Welcome to the Portal Room Game");
-      Console.WriteLine("The Goal is to Find teh Exit.\n");
+      Console.WriteLine("The Goal is to Find the Exit.\n");
       Help();
       Console.WriteLine("\nPlease Enter Player Name to Play:");
       string PlayerName = Console.ReadLine().ToUpper();
+      CurrentPlayer = new Player(PlayerName);
       Console.WriteLine("You Wake up in a room and you can't remember how you got there.\n");
 
     }
@@ -173,7 +174,7 @@ namespace CastleGrimtol.Project
       }
       else
       {
-        Console.WriteLine("You havea nothing.");
+        Console.WriteLine("You have nothing.");
       }
     }
 
@@ -195,6 +196,9 @@ namespace CastleGrimtol.Project
         case "west":
           CurrentRoom = (Room)CurRoom.MoveToRoom(Direction.west);
           break;
+        default:
+          System.Console.WriteLine("Not a valid direction!\n");
+          return;
       }
       Console.Clear();
 
@@ -208,41 +212,75 @@ namespace CastleGrimtol.Project
 
     public void Get(string itemName)
     {
-      // CurrentPlayer.AddInventoryItem(itemName);
-      // CurrentRoom.RemoveRoomItem(itemName);
+      Item item = CurrentRoom.Items.Find(thing =>
+      {
+        return thing.Name.ToLower() == itemName;
+      });
+      if (item != null)
+      {
+        CurrentRoom.Items.Remove(item);
+        CurrentPlayer.Inventory.Add(item);
+        Console.WriteLine("You now have an item\n");
+      }
+      else
+      {
+        Console.WriteLine("You can't have that!");
+      }
+
     }
 
     public void Use(string itemName)
     {
-      // if (currentPlayer.Inventory.Name includes itemName){
-      //   switch (itemName)
-      //   {
-      //     case "glasses":
-      //       if (CurrentRoom.Name == "five")
-      //       {
-      //         Console.WriteLine("Putting on the glasses here reveals the secret hidden exit.\n");
-      //         Console.WriteLine("Congratulations,. You Survived.  You Won.");
-      //       }
-      //       else
-      //       {
-      //         Console.WriteLine("You get a massave headache and quickly remove the glasses");
-      //       }
-      //       break;
-      //     case "gun":
-      //       Console.WriteLine("You shoot the gun, the bullet richochets off the walls and you die!!");
-      //       Running = false;
-      //       return;
-      //     case "duck":
-      //       Console.WriteLine("You can't use a rubber duck");
-      //       break;
-      //   }
-      // }
+      Item item = CurrentPlayer.Inventory.Find(thing =>
+      {
+        return thing.Name.ToLower() == itemName;
+      });
+      switch (itemName)
+      {
+        case "glasses":
+          if (CurrentRoom.Name == "five")
+          {
+            Console.WriteLine("Putting on the glasses here reveals the secret hidden exit.\n");
+            Console.WriteLine("Congratulations. You Survived.  You Won.");
+            Running = false;
+            return;
+          }
+          else
+          {
+            Console.WriteLine("You get a massave headache and quickly remove the glasses");
+          }
+          break;
+        case "gun":
+          Console.WriteLine("You shoot the gun, the bullet richochets off the walls and you die!!");
+          Running = false;
+          return;
+        case "duck":
+          Console.WriteLine("You can't use a rubber duck");
+          break;
+        default:
+          System.Console.WriteLine("You don't havae that item.\n");
+          break;
+      }
     }
+
 
     public void Drop(string itemName)
     {
-      // CurrentPlayer.RemoveInventoryItem(itemName);
-      // CurrentRoom.AddRoomItem(itemName);
+      Item item = CurrentPlayer.Inventory.Find(thing =>
+      {
+        return thing.Name.ToLower() == itemName;
+      });
+      if (item != null)
+      {
+        CurrentRoom.Items.Add(item);
+        CurrentPlayer.Inventory.Remove(item);
+        Console.WriteLine("You now have an item\n");
+      }
+      else
+      {
+        Console.WriteLine("You can't have that!");
+      }
+
     }
   }
 }
