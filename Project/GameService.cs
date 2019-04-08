@@ -31,7 +31,7 @@ namespace CastleGrimtol.Project
 
     public void Reset()
     {
-
+      Run();
     }
 
     public void StartGame()
@@ -94,6 +94,9 @@ namespace CastleGrimtol.Project
         case "use":
           Use(option);
           break;
+        case "reset":
+          Reset();
+          break;
         default:
           Console.WriteLine("Not a valid command.\n");
           break;
@@ -108,6 +111,7 @@ namespace CastleGrimtol.Project
       Console.WriteLine("Commands used in this game:");
       Console.WriteLine("Help  -  Displays a list of commands used in this game");
       Console.WriteLine("Quit  -  Quits Game");
+      Console.WriteLine("Reset  -  Starts Game Over");
       Console.WriteLine("Look  -  Displays Room Description and Items in Room");
       Console.WriteLine("Invetory  -  Displays the Items you have");
       Console.WriteLine("Go 'direction'  -  Direction can be north, south, east, west");
@@ -195,7 +199,7 @@ namespace CastleGrimtol.Project
       switch (itemName)
       {
         case "glasses":
-          if (CurrentRoom.Name == "five")
+          if (CurrentRoom.Name == "eighteen")
           {
             Console.WriteLine("Putting on the glasses here reveals the secret hidden exit.\n");
             Console.WriteLine("Congratulations. You Survived.  You Won.");
@@ -299,7 +303,7 @@ namespace CastleGrimtol.Project
       six.AddRoomItem(radio);
       one.AddRoomItem(beaniebaby);
       fifteen.AddRoomItem(clock);
-      eight.AddRoomItem(tshirt);
+      twelve.AddRoomItem(tshirt);
       //Establish Relationships
       one.AddExits(Direction.west, eleven);
       one.AddExits(Direction.north, two);
