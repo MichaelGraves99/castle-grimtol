@@ -24,9 +24,8 @@ namespace CastleGrimtol.Project.Models
       {
         Item CurInventory = Inventory[i];
         Console.WriteLine($"{CurInventory.Name} - {CurInventory.Description}");
-        Console.WriteLine("\n");
       }
-
+      Console.WriteLine("\n");
     }
 
     public Player(string playerName)

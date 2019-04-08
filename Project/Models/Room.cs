@@ -30,11 +30,6 @@ namespace CastleGrimtol.Project.Models
     {
       Items.Add(item);
     }
-    // public void RemoveRoomItem(Item item)
-    // {
-    //   Items.Remove(item);
-    // }
-
 
     public void AddExits(Direction direction, IRoom destination)
     {
