@@ -265,22 +265,22 @@ namespace CastleGrimtol.Project
     public void Setup()
     {
       //Create Rooms
-      Room one = new Room("one", "You are in a metal room about 15 feet square, with exit portals to the North, South, and West.");
+      Room one = new Room("one", "You are in a metal room about 15 feet square, with exit portals to the North, South, and West.\nThere is a spray painted sing on the east wall that reads:\nFind the room with the blue X.");
       Room two = new Room("two", "You are in a metal room about 15 feet square, with exit portals to the West, and South.");
       Room three = new Room("three", "You are in a metal room about 15 feet square, with exit portals to the West, and South.");
-      Room four = new Room("four", "You are in a metal room about 15 feet square, with exit portals to the North, and East.");
-      Room five = new Room("five", "You are in a metal room about 15 feet square, with exit portals to the North, and East.");
+      Room four = new Room("four", "You are in a metal room about 15 feet square, with exit portals to the North, and East.\nThere is a spray painted sing on the south wall that reads:\nGet the Glasses.");
+      Room five = new Room("five", "You are in a metal room about 15 feet square, with exit portals to the North, and East.\nThere is a spray painted sing on the west wall that reads:\nGo East for the Radio.");
       Room six = new Room("six", "You are in a metal room about 15 feet square, with exit portals to the North, South, and West.");
       Room seven = new Room("seven", "You are in a metal room about 15 feet square, with an exit portal to the South.");
       Room eight = new Room("eight", "You are in a metal room about 15 feet square, with an exit portal to the North.");
       Room nine = new Room("nine", "You are in a metal room about 15 feet square, with exit portals to the North, South and East.");
       Room ten = new Room("ten", "You are in a metal room about 15 feet square, with exit portals to the North, South, and West.");
       Room eleven = new Room("eleven", "You are in a metal room about 15 feet square, with exit portals to the North, South and East.");
-      Room twelve = new Room("twelve", "You are in a metal room about 15 feet square, with exit portals to the East and South.");
+      Room twelve = new Room("twelve", "You are in a metal room about 15 feet square, with exit portals to the East and South.\nThere is a Blue X spray painted on the north wall.");
       Room thirteen = new Room("thirteen", "You are in a metal room about 15 feet square, with exit portals to the East, West, and South.");
       Room fourteen = new Room("fourteen", "You are in a metal room about 15 feet square, with exit portals to the East, West, and South.");
       Room fifteen = new Room("fifteen", "You are in a metal room about 15 feet square, with portals to the North and South.");
-      Room sixteen = new Room("sixteen", "You are in a metal room about 15 feet square, with exit portals to the North and West.");
+      Room sixteen = new Room("sixteen", "You are in a metal room about 15 feet square, with exit portals to the North and West.\nThere is a Red X on the East Wall.");
       Room seventeen = new Room("seventeen", "You are in a metal room about 15 feet square, with exit portals to the North and West.");
       Room eighteen = new Room("eighteen", "You are in a metal room about 15 feet square, with no exits.");
       //Create Items
@@ -298,7 +298,7 @@ namespace CastleGrimtol.Project
       five.AddRoomItem(gun);
       three.AddRoomItem(duck);
       four.AddRoomItem(glove);
-      twelve.AddRoomItem(zune);
+      ten.AddRoomItem(zune);
       eleven.AddRoomItem(tape);
       six.AddRoomItem(radio);
       one.AddRoomItem(beaniebaby);

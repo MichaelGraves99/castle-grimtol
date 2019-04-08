@@ -18,8 +18,8 @@ namespace CastleGrimtol.Project.Models
       {
         Item CurrentItem = Items[i];
         Console.WriteLine($"{CurrentItem.Name} - {CurrentItem.Description}");
-        System.Console.WriteLine("\n");
       }
+      System.Console.WriteLine("\n");
       // Items.ForEach(name =>
       // {
       //   Console.WriteLine(name.Name);
