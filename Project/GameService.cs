@@ -25,6 +25,7 @@ namespace CastleGrimtol.Project
           int numItems = CurrentRoom.Items.Count;
           CurrentRoom.PrintItems(numItems);
         }
+        // if (CurrentRoom.Name == eighteen && )
         GetUserInput();
       }
     }
@@ -190,58 +191,69 @@ namespace CastleGrimtol.Project
       }
     }
 
+    //   Cats oldCat = Cats.Find(c => c.Id == id);
+    //     if (oldCat == null)
+    //     {
+    //       return BadRequest();
+    // }
+
     public void Use(string itemName)
     {
-      Item item = CurrentPlayer.Inventory.Find(thing =>
+      Item item = CurrentPlayer.Inventory.Find(thing => thing.Name.ToLower() == itemName);
+      if (item == null)
       {
-        return thing.Name.ToLower() == itemName;
-      });
-      switch (itemName)
+        Console.WriteLine("You don't have that item.\n");
+        return;
+      }
+      else
       {
-        case "glasses":
-          if (CurrentRoom.Name == "eighteen")
-          {
-            Console.WriteLine("Putting on the glasses here reveals the secret hidden exit.\n");
-            Console.WriteLine("Congratulations. You Survived.  You Won.");
+        switch (itemName)
+        {
+          case "glasses":
+            if (CurrentRoom.Name == "eighteen")
+            {
+              Console.WriteLine("Putting on the glasses here reveals the secret hidden exit.\n");
+              Console.WriteLine("Congratulations. You Survived.  You Won.");
+              Running = false;
+              return;
+            }
+            else
+            {
+              Console.WriteLine("You get a massave headache and quickly remove the glasses");
+            }
+            break;
+          case "gun":
+            Console.WriteLine("You shoot the gun, the bullet richochets off the walls and you die!!");
             Running = false;
             return;
-          }
-          else
-          {
-            Console.WriteLine("You get a massave headache and quickly remove the glasses");
-          }
-          break;
-        case "gun":
-          Console.WriteLine("You shoot the gun, the bullet richochets off the walls and you die!!");
-          Running = false;
-          return;
-        case "duck":
-          Console.WriteLine("You can't use a rubber duck.");
-          break;
-        case "glove":
-          Console.WriteLine("You are now wearing a ski glove on your left hand.");
-          break;
-        case "zune":
-          Console.WriteLine("Zunes were junk even if they aren't broken.");
-          break;
-        case "tape":
-          Console.WriteLine("No 8-Track player. Have you even seen an 8-Track?");
-          break;
-        case "boombox":
-          Console.WriteLine("Some Nickleback starts playing, then stops.");
-          break;
-        case "beaniebaby":
-          Console.WriteLine("You can't really use a Darth Vader beanie baby. It is kinda cute.");
-          break;
-        case "clock":
-          Console.WriteLine("Not sure what you want to do with a busted clock.");
-          break;
-        case "tshirt":
-          Console.WriteLine("Now you are wearing an awesome Boise Codeworks T-shirt.");
-          break;
-        default:
-          System.Console.WriteLine("You don't have that item.\n");
-          break;
+          case "duck":
+            Console.WriteLine("You can't use a rubber duck.");
+            break;
+          case "glove":
+            Console.WriteLine("You are now wearing a ski glove on your left hand.");
+            break;
+          case "zune":
+            Console.WriteLine("Zunes were junk even if they aren't broken.");
+            break;
+          case "tape":
+            Console.WriteLine("No 8-Track player. Have you even seen an 8-Track?");
+            break;
+          case "boombox":
+            Console.WriteLine("Some Nickleback starts playing, then stops.");
+            break;
+          case "beaniebaby":
+            Console.WriteLine("You can't really use a Darth Vader beanie baby. It is kinda cute.");
+            break;
+          case "clock":
+            Console.WriteLine("Not sure what you want to do with a busted clock.");
+            break;
+          case "tshirt":
+            Console.WriteLine("Now you are wearing an awesome Boise Codeworks T-shirt.");
+            break;
+          default:
+            System.Console.WriteLine("You don't have that item.\n");
+            break;
+        }
       }
     }
 
